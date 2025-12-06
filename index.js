@@ -16,8 +16,13 @@ app.use(express.json());
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
+const taskRouter = require('./routes/TaskRoutes.js');
+
+// Mount the task router
+app.use('/tasks', taskRoutes);
+
 // Mount the project router
-app.use('/projects', projectRouter);
+app.use('/projects', projectRoutes);
 
 // Optionally, mount auth routes if needed
 app.use('/auth', authRouter);
